@@ -139,7 +139,7 @@
 }
 
 .fill (@top, @right, @bottom, @left) {
-	position: absolute; 
+	position: absolute;
 	top: @top;
 	right: @right;
 	bottom: @bottom;
@@ -155,15 +155,29 @@
 }
 
 .fill (fixed, @top, @right, @bottom, @left) {
-	position: fixed; 
+	position: fixed;
 	top: @top;
 	right: @right;
 	bottom: @bottom;
 	left: @left;
 }
 
+.font-size(@size, @line){
+	font-size: @size;
+	line-height: @line;
+}
+
 .hide {
 	display: none;
+}
+
+.no-float {
+	&:after {
+		display: block;
+		line-height: 0;
+		content: '';
+		clear: both;
+	}
 }
 
 .opacity (@opacity: 0.5) {
@@ -245,14 +259,10 @@
 }
 
 ._font(@size, @line, @weight) {
-	._font-size-weight(@size, @weight);
-	line-height: @line;
-}
-
-._font-size-weight(@size, @weight) {
-	font-size: @size;
+	.font-size(@size, @line);
 	font-weight: @weight;
 }
+
 .sans (@font: Arial, @size: 14px, @line: 21px, @weight: normal) {
 	font-family: @font, Tahoma, sans-serif;
 	._font(@size, @line, @weight);
