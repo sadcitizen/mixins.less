@@ -162,6 +162,36 @@
 	left: @left;
 }
 
+.font(sans, @font: Arial, @size: 14px, @line: 21px, @weight: normal) {
+	.font-family(sans, @font);
+	.font-size(@size, @line);
+	font-weight: @weight;
+}
+
+.font(serif, @font: Georgia, @size: 14px, @line: 21px, @weight: normal) {
+	.font-family(serif, @font);
+	.font-size(@size, @line);
+	font-weight: @weight;
+}
+
+.font(mono, @font: Monaco, @size: 14px, @line: 21px, @weight: normal) {
+	.font-family(mono, @font);
+	.font-size(@size, @line);
+	font-weight: @weight;
+}
+
+.font-family(sans, @font) {
+	font-family: @font, Arial, Tahoma, sans-serif;
+}
+
+.font-family(serif, @font) {
+	font-family: @font, Georgia, Times, serif;
+}
+
+.font-family(mono, @font) {
+	font-family: @font, "Courier New", monospace;
+}
+
 .font-size(@size, @line){
 	font-size: @size;
 	line-height: @line;
@@ -256,24 +286,4 @@
     -moz-transition: @transition;
     -o-transition: @transition;
     transition: @transition;
-}
-
-._font(@size, @line, @weight) {
-	.font-size(@size, @line);
-	font-weight: @weight;
-}
-
-.sans (@font: Arial, @size: 14px, @line: 21px, @weight: normal) {
-	font-family: @font, Tahoma, sans-serif;
-	._font(@size, @line, @weight);
-}
-
-.serif (@font: Georgia, @size: 14px, @line: 21px, @weight: normal) {
-	font-family: @font, Times, serif;
-	._font(@size, @line, @weight);
-}
-
-.mono (@font: Monaco, @size: 14px, @line: 21px, @weight: normal) {
-	font-family: @font, "Courier New", monospace;
-	._font(@size, @line, @weight);
 }
